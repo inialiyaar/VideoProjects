@@ -1,0 +1,124 @@
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+h1 {
+  padding: 20px;
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: skyblue;
+  text-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+}
+
+#start {
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  background-color: skyblue; 
+  font-size: 18px;
+  color: black;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 15px skyblue;
+}
+
+#start:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px skyblue;
+}
+
+.border {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.border::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: conic-gradient(transparent, skyblue, transparent 30%);
+  animation: rotate 4s linear infinite;
+}
+
+.border::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: #0a0a0a;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.lyrics {
+  position: relative;
+  z-index: 10; 
+  width: 90%;
+  height: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.lyrics p {
+  padding: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  text-shadow: 0 0 8px skyblue;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.lyrics::-webkit-scrollbar {
+  width: 3px;
+}
+.lyrics::-webkit-scrollbar-thumb {
+  background: skyblue;
+}
